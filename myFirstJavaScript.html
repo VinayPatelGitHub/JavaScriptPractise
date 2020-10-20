@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button onclick="SayHello()">Press me</button>
+    <button onclick='document.getElementById("greeting").innerHTML = "Hey Friend"'>Pressss Me</button>
+    <h1 id="greeting" onmouseover="ChangeColor(this, 'red')" onmouseout="ChangeColor(this, 'black')"></h1>
+    <p id="objectDemo"></p>
+    <form action="https://www.bbc.co.uk/search">
+        <label for="search">Search for:</label><br />
+        <input type="text" id="search" name="q" value="Birmingham" /><br />
+        <input type="submit" value="Submit" />
+    </form>
+    <div id="MySong"></div>
+    <button onclick='AddALine(document.getElementById("MySong"))'>Add a line</button>
+    <button onclick='DeleteLastLine(document.getElementById("MySong"))'>Delete last line</button>
+
+
+    <script src="LessonFirstJavaScript.js"></script>
+    <script>
+        class Person {
+            constructor(fName, lName, age) {
+                this.firstName = fName;
+                this.lastName = lName;
+                this.age = age;
+            }
+            getFullName() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        var vinay = new Person("Vinay", "Patel", 24);
+        document.getElementById("objectDemo").innerHTML =
+            vinay.getFullName() + " " + vinay.age;
+    </script>
+</body>
+</html>
