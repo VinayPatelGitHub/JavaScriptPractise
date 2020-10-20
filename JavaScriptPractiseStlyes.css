@@ -1,0 +1,44 @@
+﻿.title{
+    font-size: 20px
+}
+
+.colourGridContainer {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.colourSubGridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.itemClassDefault {
+    background-color: black;
+    color: black;
+    padding: 20px
+}
+
+.itemClassActive {
+    background-color: white;
+    color: white;
+    padding: 20px
+}
+
+.row {
+    border: 1px solid green;
+    height: 1em;
+    line-height: 1em;
+}
+
+.box {
+    display: inline-block;
+    width: 6.25%;
+    height: 1em;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
