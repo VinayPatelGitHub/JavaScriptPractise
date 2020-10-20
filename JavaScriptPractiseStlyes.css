@@ -4,10 +4,7 @@
 
 .colourGridContainer {
     display: grid;
-    margin: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
+    grid-template-columns: 1fr 1fr 1fr 
 }
 
 .colourSubGridContainer {
@@ -17,28 +14,57 @@
 
 }
 
+
 .itemClassDefault {
+    transition-duration: 1s;
     background-color: black;
     color: black;
-    padding: 20px
+
 }
 
 .itemClassActive {
     background-color: white;
     color: white;
-    padding: 20px
+}
+
+
+.div {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
 }
 
 .row {
-    border: 1px solid green;
-    height: 1em;
-    line-height: 1em;
+    margin: 0px;
+    padding: 0px;
 }
 
 .box {
+    transition-duration: 1s;
     display: inline-block;
     width: 6.25%;
-    height: 1em;
+    height: 2em;
     box-sizing: border-box;
-    border: 1px solid red;
+    background-color: black;
+    margin-bottom: -4px;
+    padding: 0px;
+}
+
+.activeBox {
+    display: inline-block;
+    width: 6.25%;
+    height: 2em;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,1);
+    margin-bottom: -4px;
+    padding: 0px;
 }

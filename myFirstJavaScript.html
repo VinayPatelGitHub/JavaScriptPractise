@@ -7,36 +7,27 @@
     <link rel="styleSheet" href="JavaScriptPractiseStlyes.css" />
 </head>
 <body>
-    <div class="title">Colour Grid</div>
-    <p> </p>
-    <div>
-        <script>
-            grid(document.body)
-        </script>
+    <div class="title">Colour Grid A1: Manual Grid</div>
+    <div class="colourGridContainer">
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">1</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">2</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">3</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">4</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">5</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">6</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">7</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">8</div>
+        <div class="itemClassDefault" onmouseover="ChangeColor(this)" onmouseout="RevertColor(this)">9</div>
     </div>
 
-    <script>
-        function grid(el) {
-        var container = document.createElement("div");
-        container.id = "main";
-        container.className = "container";
+    <br />
+    <br />
+    <div class="title">Colour Grid A2: Scripted Generated Grid</div>
 
-        for (i = 0; i < 15; i += 1) {
-            var row = document.createElement("div");
-            row.className = "row";
-            row.id = "row" + i;
 
-            for (k = 0; k < 16; k += 1) {
-                var box = document.createElement("div");
-                box.className = "box";
-                row.appendChild(box);
-            };
-            container.appendChild(row);
-        };
-        el.appendChild(container);
-        };
 
-        grid(document.body)
+    <script src="LessonFirstJavaScript.js">
+
     </script>
 
 
