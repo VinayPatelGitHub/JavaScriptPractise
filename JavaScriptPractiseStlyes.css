@@ -52,9 +52,9 @@
     transition-duration: 1s;
     display: inline-block;
     width: 6.25%;
-    height: 2em;
+    height: 5em;
     box-sizing: border-box;
-    background-color: black;
+    background-color: rgba(0,0,0,1);
     margin-bottom: -4px;
     padding: 0px;
 }
@@ -62,9 +62,33 @@
 .activeBox {
     display: inline-block;
     width: 6.25%;
-    height: 2em;
+    height: 5em;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,1);
+    /*background-color: rgba(255,255,255,1);*/
     margin-bottom: -4px;
+    padding: 0px;
+}
+
+.box1 {
+    transition-duration: 1s;
+    display: inline-block;
+    width: 10pt;
+    height: 10pt;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,1);
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.row1 {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: -4.5px;
+}
+.activeBox1 {
+    display: inline-block;
+    width: 10pt;
+    height: 10pt;    
+    box-sizing: border-box;
+    margin-bottom: 0px;
     padding: 0px;
 }

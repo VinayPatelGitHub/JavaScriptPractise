@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="styleSheet" href="JavaScriptPractiseStlyes.css" />
+    <script src="LessonFirstJavaScript.js"></script>
 </head>
 <body>
     <div class="title">Colour Grid A1: Manual Grid</div>
@@ -23,17 +24,16 @@
     <br />
     <br />
     <div class="title">Colour Grid A2: Scripted Generated Grid</div>
-    <button onclick="grid(document.body)">Press me1</button>
-
+    <button onclick='grid(document.getElementById("grid1"))'>Press me1</button>
+    <div id="grid1"></div>
+    <br />
     <div class="title">Colour Grid A3</div>
-    <button onclick="grid2(document.body)">Press me2</button>
-
-
-
-    <script src="LessonFirstJavaScript.js">
-
-    </script>
-
+    <button onclick='grid2(document.getElementById("grid2"))'>Press me2</button>
+    <div id="grid2"></div>
+    <br />
+    <div class="title">Colour Grid A4</div>
+    <button onclick='grid3(document.getElementById("grid3"))'>Press me3</button>
+    <div id="grid3"></div>
 
 </body>
 </html>
