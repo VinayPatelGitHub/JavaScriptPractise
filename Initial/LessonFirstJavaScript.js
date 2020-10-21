@@ -2,6 +2,7 @@
 var colours = [255, 255, 255];
 var change = -10
 var click = 0;
+var randomclick = Math.round(Math.random() * 255)
 
 function ChangeColor(obj) {
     obj.className = "itemClassActive";
@@ -61,6 +62,33 @@ function ChangeColor4(obj) {
         change = 10;
     }
     colours[click] += change;
+    var num1 = colours[0];
+    var num2 = colours[1];
+    var num3 = colours[2];
+    var color = 'rgba(' + num1 + ',' + num2 + ',' + num3 + ',' + 1 + ')'
+    obj.style.backgroundColor = color;
+}
+
+function ChangeColor5(obj) {
+    obj.className = "activeBox";
+    if (colours[click] > 240) {
+        change = -10;
+    }
+    else if (colours[click] < 15) {
+        change = 10;
+    }
+
+    colours[click] += change;
+
+    if (randomclick == -10 && colours[click] < randomclick) {
+        AddToClick();
+        randomclick = Math.round(Math.random() * 255)
+    }
+    else if (randomclick == 10 && colours[click] > randomclick) {
+        AddToClick();
+        randomclick = Math.round(Math.random() * 255)
+    }
+    
     var num1 = colours[0];
     var num2 = colours[1];
     var num3 = colours[2];
