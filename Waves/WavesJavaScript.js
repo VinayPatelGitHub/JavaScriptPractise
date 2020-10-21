@@ -10,6 +10,11 @@ function Print() {
     return string;    
 }
 
+function View(string) {
+    var string = string;
+    return string;    
+}
+
 function RevertColor(obj) {
     obj.style.backgroundColor = null;
     obj.className = "box";
@@ -51,8 +56,32 @@ function AddToClick() {
     }
 }
 
-function Waves(obj) {
-    //??
+function GetObj(idstring) {
+    
+    var obj = document.getElementById(idstring);
+    return obj;
+}
+
+function Waves(objID) {
+    document.getElementById("view").innerHTML = View(objID);
+    var str = objID;
+    var ret = str.replace('box', '');    
+    ret = ret - 5;
+    
+
+
+
+    for (i = 0; i < 10; i += 1) {
+        var boxObj = GetObj('box' + ret);
+        
+        
+        var num1 = colours[0];
+        var num2 = colours[1];
+        var num3 = colours[2];
+        var color = 'rgba(' + num1 + ',' + num2 + ',' + num3 + ',' + 1 + ')'
+        boxObj.style.backgroundColor = color;
+        str += 1;
+    }
 
 }
 
