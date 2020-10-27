@@ -16,11 +16,19 @@ function View(string) {
 }
 
 function RevertColor(obj) {
-    if (obj !== null) {
-        obj.style.backgroundColor = null;
-        obj.className = "box";
+    obj.style.backgroundColor = null;
+    obj.className = "box";
+    for (i = -1; i < 2; i += 1) {
+        for (j = -1; j < 2; j += 1) {
+            var newObj = changeObjID(obj.id, i, j);
+            var boxObj = GetObj(newObj);
+            if (boxObj !== null) {
+                boxObj.style.backgroundColor = null;
+                boxObj.className = "box";
+            }
+            
+        }
     }
-    
 }
 
 function ChangeColor(obj) {
@@ -55,7 +63,7 @@ function AddToClick() {
         click = 0;
     }
     else {
-        click ++;
+        click += 1;
     }
 }
 
@@ -82,65 +90,27 @@ function changeObjID(objectID, x, y) { //change object ID by x and y
     return result
 }
 
-function WaveChangeColour(currentSize, objID){
-    for (i = -currentSize; i < currentSize + 1; i++) {
-        for (j = -currentSize; j < currentSize + 1; j++) {
+function Waves(objID) {
+    //document.getElementById("view").innerHTML = View(objID);
+    for (i = -1; i < 2; i += 1) {
+        for (j = -1; j < 2; j += 1) {
             var newObj = changeObjID(objID, i, j);
             var boxObj = GetObj(newObj);
-            if (boxObj !== null) {
-                ChangeColor(boxObj);
-            }
-        }
+            ChangeColor(boxObj);
+        }        
     }
-}
 
-function WaveRemovePrevious(previousSize, objID) {
-    for (i = -previousSize; i < previousSize + 1; i++) {
-        for (j = -previousSize; j < previousSize + 1; j++) {
+    for (let i = 0; i < 10; i++) {
+        task(i);
+    } 
+
+    for (i = -2; i < 3; i += 1) {
+        for (j = -2; j < 3; j += 1) {
             var newObj = changeObjID(objID, i, j);
             var boxObj = GetObj(newObj);
-            RevertColor(boxObj);
+            ChangeColor(boxObj);
         }
-    }
-}
-
-function Grow(w, objID) {
-    WaveChangeColour(w, objID);
-    v = w - 1;
-    WaveRemovePrevious(v, objID);
-}
-
-
-
-function Waves(objID) { 
-
-    for (let w = 0; w < 10; w++) {
-        setTimeout(function writeout1() {  
-            for (let i = 0; i < 10; w++) {
-                setTimeout(function writeout2() {
-                    document.getElementById("view").innerHTML = View(w+ ' '+ i);
-                }, 500 * i);
-            }
-        }, 500 * w);
-    }
-
-
-
-
-    //var size = 10;
-    //for (let loop = 1; loop < 3; loop++) {
-    //    setTimeout(function Pause() {
-    //        if (loop == 1) {
-    //            for (let w = 1; w < size; w++) {
-    //                setTimeout(Grow(w, objID), 100 * w);
-    //            }
-    //        }
-    //        else {
-    ////            document.getElementById("view").innerHTML = View("pause?");
-    //        }
-    //    }, 1000 * loop);
-    //}     
-
+    } 
 
 }
 
