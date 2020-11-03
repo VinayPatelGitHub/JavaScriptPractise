@@ -19,8 +19,7 @@ function RevertColor(obj) {
     if (obj !== null) {
         obj.style.backgroundColor = null;
         obj.className = "box";
-    }
-    
+    }    
 }
 
 function ChangeColor(obj) {
@@ -50,6 +49,15 @@ function ChangeColor(obj) {
     document.getElementById("text").innerHTML = Print();
 }
 
+function ChangeWaveColor(obj) {
+    var num1 = colours[0];
+    var num2 = colours[1];
+    var num3 = colours[2];
+    var color = 'rgba(' + num1 + ',' + num2 + ',' + num3 + ',' + 1 + ')'
+    obj.style.backgroundColor = color;
+    document.getElementById("text").innerHTML = Print();
+}
+
 function AddToClick() {
     if (click == 2) {
         click = 0;
@@ -66,19 +74,15 @@ function GetObj(idstring) {
 }
 
 function changeObjID(objectID, x, y) { //change object ID by x and y
-    //document.getElementById("view").innerHTML = View(objectID);
     var str = objectID + " ";
     var n1 = str.search("b");
     var rowNum = str.substring(3, n1);
-    //document.getElementById("view").innerHTML = View(boxNum);
     var n2 = str.search("x") + 1;
     var n3 = str.search(" ");
     var boxNum = str.substring(n2, n3);
     var boxNum1 = parseInt(boxNum) + parseInt(x);
-    //document.getElementById("view").innerHTML = View(boxNum1);
     var rowNum1 = parseInt(rowNum) + parseInt(y);
     var result = 'row' + rowNum1 + 'box' + boxNum1;
-    //document.getElementById("view").innerHTML = View(result);
     return result
 }
 
@@ -88,7 +92,7 @@ function WaveChangeColour(currentSize, objID){
             var newObj = changeObjID(objID, i, j);
             var boxObj = GetObj(newObj);
             if (boxObj !== null) {
-                ChangeColor(boxObj);
+                ChangeWaveColor(boxObj);
             }
         }
     }
@@ -104,26 +108,18 @@ function WaveRemovePrevious(previousSize, objID) {
     }
 }
 
-
 function Waves(objID) { 
-    var wait = 100;
-    var count = 10;
-    var stop = 2
-    for (let loop = 0; loop < stop; loop++) {
-        setTimeout(function writeout1() {
-            for (let w = 1; w < count; w++) {
-                if (loop == 0) {
-                    setTimeout(function Grow() {
-                        WaveChangeColour(w, objID);
-                        v = w - 1;
-                        WaveRemovePrevious(v, objID);
-                    }, 100 * w);
-                }
-                if (loop == 1) {
-                    WaveRemovePrevious(count - 1, objID);
-                }
-            }            
-        }, wait * loop * count);
+    var wait = 150;
+    var count = 15;
+    var delay = 2
+    for (let w = 1; w < count; w++) {
+        setTimeout(function Grow() {
+            if (w < count - delay) {
+                WaveChangeColour(w, objID);
+            }
+            v = w - delay;
+            WaveRemovePrevious(v, objID);
+        }, wait * w);
     }
 }
 
@@ -131,13 +127,14 @@ function grid(el) {
     var container = document.createElement("div");
     container.id = "main";
     container.className = "container";
+    var numOfPixels = 40
 
-    for (i = 0; i < 20; i += 1) {
+    for (i = 0; i < numOfPixels; i += 1) {
         var row = document.createElement("div");
         row.className = "row";
         row.id = "row" + i;
 
-        for (k = 0; k < 20; k += 1) {
+        for (k = 0; k < numOfPixels; k += 1) {
             var box = document.createElement("div");
             box.className = "box";
             box.id = "row" + i + "box" + k;
